@@ -1,0 +1,19 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: am-user-rest
+  namespace: development
+  labels:
+    app: user-rest
+spec:
+  replicas: 4
+  template:
+    metadata:
+      labels:
+        apps: user-rest
+    spec:
+      containers:
+      - name: user-rest
+        image: gcr.io/am-travels-services/user-rest:development
+        ports:
+        - containerPort: 8081
